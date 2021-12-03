@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>My photos</title>
+</head>
+
+<body>
+    <header>
+        <h1>My Photos</h1>
+    </header>
+
+
+    <div class="container">
+        <div id="img_unit">
+
+        </div>
+    </div>
+
+    <script>
+        var images = [
+            {
+                "path": "img/castle.jpg",
+                "name": "砦",
+                "caption": "丘の上で静かに佇んでいます"
+            },
+
+            {
+                "path": "img/gourd_pumpkin.jpg",
+                "name": "ひょうたんかぼちゃ",
+                "caption": "可愛らしい夏の名物です"
+            },
+
+            {
+                "path": "img/nuts.jpg",
+                "name": "赤い実",
+                "caption": "葉が山桃に似ているけれど、本当は何の実かしら？"
+            }
+        ];
+
+        var img;
+        var caption;
+        var div;
+
+        for (var i = 0; i < images.length; i++) {
+
+            //<img src = "img/catstle.jpg">
+            img = document.createElement('img');
+            img.setAttribute('src', images[i].path);
+
+            //<div class="inner"><p>caption<span>name</span></div>
+            caption = document.createElement('div');
+            caption.className = 'inner';
+            caption.innerHTML = '<p>' + images[i].caption + '<span>' + 'Title: '+ images[i].name + '</span></p>';
+
+            //<div class ="photo"> ~ </div>
+            div = document.createElement('div');
+            div.className = 'photo';
+            div.appendChild(img);
+            div.appendChild(caption);
+
+            //<div id = "img_unit">の中に要素を追加
+            document.getElementById('img_unit').appendChild(div);
+
+        }
+    </script>
+
+</body>
+
+</html>
